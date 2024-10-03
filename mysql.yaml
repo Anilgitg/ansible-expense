@@ -1,9 +1,10 @@
 - name: mysql configuration
-  hosts: mysql
+  hosts: local
+  connection: local
   become: yes
   vars:
     mysql_root_password: ExpenseApp@1
-    login_host: "172.31.20.173"
+    login_host: localhost
   tasks:
   - name: ansible to install pymysql
     ansible.builtin.pip:
@@ -26,7 +27,7 @@
     community.mysql.mysql_info:
       login_user: root
       login_password: "{{ mysql_root_password }}"
-      login_host: "172.31.20.173"
+      login_host: localhost
     ignore_erros: true
     register: mysql_info
   
