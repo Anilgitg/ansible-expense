@@ -24,11 +24,11 @@
       enabled: yes
  
   - name: connect to mysql server
-    mysql_db:
+    community.mysql.mysql_db:
       login_user: root
       login_password: "{{ mysql_root_password }}"
       login_host: "{{ login_host }}"
-    ignore_erros: true
+    ignore_errors: true
     register: mysql_info
   
   - name: print mysql info
