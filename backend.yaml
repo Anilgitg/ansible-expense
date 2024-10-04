@@ -3,7 +3,7 @@
   become: yes
   vars:
     mysql_root_password: ExpenseApp@1
-    login_host: mysql
+    login_host: "172.31.28.242"
   tasks:
   - name: disable default nodejs
     ansible.builtin.command: dnf module disable nodejs -y
